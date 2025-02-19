@@ -81,6 +81,9 @@ function App() {
           </form>
           <p id="result">{result}</p>
         </section>
+        <footer className="region">
+        <p>Om du är nyfiken på hur den här sidan är byggd så hittar du koden på <a href="https://github.com/jensadev/mousserande-katapult" target="_blank">GitHub</a>.</p>
+      </footer>
       </main>
     </div>
   );
