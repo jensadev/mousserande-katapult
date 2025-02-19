@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --color-dark: #242424;
+  --color-dark: rgb(36, 36, 36);
   --color-light:  rgba(255, 255, 255, 0.87);
 
   color-scheme: light dark;

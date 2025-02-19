@@ -1,0 +1,31 @@
+.wrapper {
+  padding-top: 60vh;
+}
+
+.hero {
+  position: relative;
+}
+.bgvideo {
+  position: fixed;
+  z-index: -1;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+
+  /* Center the video */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Set the video to fill the entire screen */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+
+  /* Set the video to mute */
+
+}
+
+.dark {
+  color: var(--color-dark);
+}
