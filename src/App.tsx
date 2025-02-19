@@ -27,10 +27,10 @@ function App() {
   return (
     <div className="App">
       <main className="wrapper" style={{ backgroundColor: `rgba(36, 36, 36, ${getOpacity()})` }}>
+        <video autoPlay loop muted className="bgvideo">
+          <source src="/FullSizeRender.MP4" type='video/mp4' />
+        </video>
         <header className="hero region flow">
-          <video autoPlay loop muted className="bgvideo">
-            <source src="/FullSizeRender.MP4" type='video/mp4' />
-          </video>
           <div className="center bounce region">
             <span className="material-symbols-outlined dark">arrow_downward</span>
           </div>
@@ -54,24 +54,30 @@ function App() {
             <li><strong>g</strong> är gravitationsaccelerationen (ca 9,8 m/s²).</li>
           </ul>
           <p>Var inte orolig om du inte förstår formeln nu, du har inte börjat på teknikprogrammet ännu.</p>
-          <figure>
+          <figure className="center">
             <img src={throwImage} alt="Bild av beräkning" />
-            <figcaption>Illustration av kastberäkning med en trebuchet. Triangeln visar hur vi beräknar den horisontella och vertikala hastigheten.</figcaption>
+            <figcaption>På bilden ser du en triangeln som visar hur vi beräknar den horisontella och vertikala hastigheten.</figcaption>
           </figure>
           <h2>Teknik för <span className='tertiary'>alla</span></h2>
           <p>För att visa och göra det tillgängligt, kommer vi att testa med en modell av en trebuchet som är 3D-printad från vårt makerspace. Detta är ett exempel på hur vi kan presentera något mekaniskt komplext. Genom att använda modern teknik som 3D-printning kan vi skapa exakta modeller som hjälper oss att förstå och experimentera med fysikens principer på ett praktiskt sätt.</p>
           <p>Men tekniken låter oss även förenkla komplex matematik så att vi alla kan använda den. Med formuläret nedan kan du beräkna hur långt trebuchet-modellen förväntas kasta en kula.</p>
         </section>
         <section className="region flow">
-          <h1>Beräkna kastavstånd</h1>
-          <form id="trebuchetForm" className="flow">
-            <label htmlFor="weight">Motvikt (kg):</label>
-            <input type="number" id="weight" name="weight" value={weight} onChange={(e) => setWeight(e.target.value)} required />
-            <label htmlFor="vx">Horisontell hastighet (m/s):</label>
-            <input type="number" id="vx" name="vx" value={vx} onChange={(e) => setVx(e.target.value)} required />
-            <label htmlFor="vy">Vertikal hastighet (m/s):</label>
-            <input type="number" id="vy" name="vy" value={vy} onChange={(e) => setVy(e.target.value)} required />
-            <button type="button" onClick={calculateDistance}>Beräkna</button>
+          <h3>Beräkna kastavstånd</h3>
+          <form id="trebuchetForm" className="throw-form flow">
+            <div className="input-group">
+              <label htmlFor="weight">Motvikt (kg):</label>
+              <input type="number" id="weight" name="weight" value={weight} onChange={(e) => setWeight(e.target.value)} required />
+            </div>
+            <div className="input-group">
+              <label htmlFor="vx">Horisontell hastighet (m/s):</label>
+              <input type="number" id="vx" name="vx" value={vx} onChange={(e) => setVx(e.target.value)} required />
+            </div>
+            <div className="input-group">
+              <label htmlFor="vy">Vertikal hastighet (m/s):</label>
+              <input type="number" id="vy" name="vy" value={vy} onChange={(e) => setVy(e.target.value)} required />
+            </div>
+            <button type="button" onClick={calculateDistance} className='button'>Beräkna</button>
           </form>
           <p id="result">{result}</p>
         </section>
