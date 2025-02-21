@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
 import "./App.css";
 import throwImage from "./assets/kast.png";
+import Form from "./components/Form.tsx"
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
-  const [weight, setWeight] = useState('');
-  const [vx, setVx] = useState('');
-  const [vy, setVy] = useState('');
-  const [result, setResult] = useState('');
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -15,14 +12,7 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getOpacity = () => Math.min(scrollY / 300, 1);
-
-  const calculateDistance = () => {
-    const g = 9.8; // Gravitationsaccelerationen
-    const t = (2 * parseFloat(vy)) / g; // Beräkna tiden i luften
-    const distance = parseFloat(vx) * t; // Beräkna kastavståndet
-    setResult(`Kastavståndet är ${distance.toFixed(2)} meter.`);
-  };
+  const getOpacity = () => Math.min(scrollY / 300, 1)
 
   return (
     <div className="App">
@@ -62,29 +52,11 @@ function App() {
           <p>För att visa och göra det tillgängligt, kommer vi att testa med en modell av en trebuchet som är 3D-printad från vårt makerspace. Detta är ett exempel på hur vi kan presentera något mekaniskt komplext. Genom att använda modern teknik som 3D-printning kan vi skapa exakta modeller som hjälper oss att förstå och experimentera med fysikens principer på ett praktiskt sätt.</p>
           <p>Men tekniken låter oss även förenkla komplex matematik så att vi alla kan använda den. Med formuläret nedan kan du beräkna hur långt trebuchet-modellen förväntas kasta en kula.</p>
         </section>
-        <section className="region flow">
-          <h3>Beräkna kastavstånd</h3>
-          <form id="trebuchetForm" className="throw-form flow">
-            <div className="input-group">
-              <label htmlFor="weight">Motvikt (kg):</label>
-              <input type="number" id="weight" name="weight" value={weight} onChange={(e) => setWeight(e.target.value)} required />
-            </div>
-            <div className="input-group">
-              <label htmlFor="vx">Horisontell hastighet (m/s):</label>
-              <input type="number" id="vx" name="vx" value={vx} onChange={(e) => setVx(e.target.value)} required />
-            </div>
-            <div className="input-group">
-              <label htmlFor="vy">Vertikal hastighet (m/s):</label>
-              <input type="number" id="vy" name="vy" value={vy} onChange={(e) => setVy(e.target.value)} required />
-            </div>
-            <button type="button" onClick={calculateDistance} className='button'>Beräkna</button>
-          </form>
-          <p id="result">{result}</p>
-        </section>
+        <Form />
         <footer className="region">
           <p>Den här webbplatsen är skapad av <a href="https://jensa.dev" target="_blank">Jens</a>, lärare på <a href="https://ntigymnasiet.se/umea/" target="_blank">NTI Gymnasiet Umeå</a>. Projektet är ett sammarbete med fysik och matte-läraren Per.</p>
-        <p>Om du är nyfiken på hur den här sidan är byggd så hittar du koden på <a href="https://github.com/jensadev/mousserande-katapult" target="_blank">GitHub</a>.</p>
-      </footer>
+          <p>Om du är nyfiken på hur den här sidan är byggd så hittar du koden på <a href="https://github.com/jensadev/mousserande-katapult" target="_blank">GitHub</a>.</p>
+        </footer>
       </main>
     </div>
   );
