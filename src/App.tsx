@@ -82,6 +82,7 @@ function App() {
           <p id="result">{result}</p>
         </section>
         <footer className="region">
+          <p>Den här webbplatsen är skapad av <a href="https://jensa.dev" target="_blank">Jens</a>, lärare på <a href="https://ntigymnasiet.se/umea/" target="_blank">NTI Gymnasiet Umeå</a>. Projektet är ett sammarbete med fysik och matte-läraren Per.</p>
         <p>Om du är nyfiken på hur den här sidan är byggd så hittar du koden på <a href="https://github.com/jensadev/mousserande-katapult" target="_blank">GitHub</a>.</p>
       </footer>
       </main>
