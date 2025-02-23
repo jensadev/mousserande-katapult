@@ -7,14 +7,17 @@ function Form() {
 
   const calculateDistance = () => {
     const g = 9.82; // Gravitation
-    const h1 = 0.08
-    const h2 = 0.42
+    const h1 = 0.08; // Height of counterweight drop
+    const h2 = 0.42; // Height of projectile release
+    
+    const lk = 0.3; // Length of counterweight arm
+    const lv = 0.04; // Length of projectile arm
+    const M = lk / lv; // Mass ratio
+    
+    const CW = parseFloat(counterWeight);
+    const BW = parseFloat(ballWeight);
 
-    const lk = 0.3
-    const lv = 0.04
-    const M = lk / lv
-
-    const vv = Math.sqrt(parseFloat(counterWeight) * g * h1 - parseFloat(ballWeight) * g * h2) * 2 / (parseFloat(counterWeight) + parseFloat(ballWeight) * M * M)
+    const vv = Math.sqrt(CW * g * h1 - BW * g * h2) * 2 / (CW + BW * M * M)
 
     const vk = vv * M
     const a = 0.7853981633974
