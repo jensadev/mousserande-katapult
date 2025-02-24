@@ -122,6 +122,7 @@ p {
   font-size: var(--step-1);
   font-weight: 500;
   font-family: inherit;
+  color: var(--color-light);
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;

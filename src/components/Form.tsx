@@ -19,7 +19,7 @@ function Form() {
     const BW = 0.017;
 
     if (isNaN(CW) || isNaN(BW) || CW <= 0 || BW <= 0) {
-      setError('Please enter valid positive numbers for both weights.');
+      setError('Felaktig inmatning, mata in ett positivt tal.');
       setResult('');
       return;
     }
