@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function Form() {
   const [counterWeight, setCounterWeight] = useState('0');
-  const [ballWeight, setBallWeight] = useState('0.017');
+  // const [ballWeight, setBallWeight] = useState('0.017');
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
 
@@ -16,7 +16,7 @@ function Form() {
     const M = lk / lv; // Mass ratio
 
     const CW = parseFloat(counterWeight);
-    const BW = parseFloat(ballWeight);
+    const BW = 0.017;
 
     if (isNaN(CW) || isNaN(BW) || CW <= 0 || BW <= 0) {
       setError('Please enter valid positive numbers for both weights.');
@@ -59,7 +59,7 @@ function Form() {
             type="number"
             id="ballWeight"
             name="ballWeight"
-            value={ballWeight}
+            value="0.017"
             readOnly
           />
         </div>
