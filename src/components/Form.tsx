@@ -1,26 +1,26 @@
 import {useState} from 'react'
 
 function Form() {
-  const [counterWeight, setCounterWeight] = useState('')
-  const [ballWeight, setBallWeight] = useState('')
+  const [counterWeight, setCounterWeight] = useState('0.3')
+  const [ballWeight, setBallWeight] = useState('0.015')
   const [result, setResult] = useState('')
 
   const calculateDistance = () => {
-    const g = 9.82; // Gravitation
-    const h1 = 0.08; // Height of counterweight drop
-    const h2 = 0.42; // Height of projectile release
+    const g = 9.82 // Gravitation
+    const h1 = 0.08 // Height of counterweight drop
+    const h2 = 0.42 // Height of projectile release
     
-    const lk = 0.3; // Length of counterweight arm
-    const lv = 0.04; // Length of projectile arm
-    const M = lk / lv; // Mass ratio
+    const lk = 0.3 // Length of counterweight arm
+    const lv = 0.04 // Length of projectile arm
+    const M = lk / lv // Mass ratio
     
-    const CW = parseFloat(counterWeight);
-    const BW = parseFloat(ballWeight);
+    const CW = parseFloat(counterWeight)
+    const BW = parseFloat(ballWeight)
 
-    const vv = Math.sqrt(CW * g * h1 - BW * g * h2) * 2 / (CW + BW * M * M)
+    const vv = Math.sqrt((CW * g * h1 - BW * g * h2) * 2 / (CW + BW * M * M))
 
     const vk = vv * M
-    const a = 0.7853981633974
+    const a = 0.7853981633974 
     const h = 0.43
 
     const t = vk * Math.sin(a) / g + Math.sqrt((vk * Math.sin(a) / g) ** 2 + 2 * h / g)
